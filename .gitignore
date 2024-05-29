@@ -1,2 +1,5 @@
 # ignore PyCharm files
 .idea/*
+
+# ignore corpus text files
+corpus/*.txt
