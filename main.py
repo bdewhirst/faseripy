@@ -1,16 +1,28 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+import sys
+import PySide6.QtCore as psqt_core
+import PySide6.QtWidgets as psqt_widg
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+# theme: to customize main window, subclass QMainWindow
+class MainWindow(psqt_widg.QMainWindow):
+    def __init__(self):
+        super().__init__()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+        self.setWindowTitle("Brian's Test App")
+        button = psqt_widg.QPushButton("Please press here.")
+
+        self.setFixedSize(psqt_core.QSize(300, 400))  # opens to this size
+        self.setMinimumSize(psqt_core.QSize(250, 300))  # specifies smallest size
+        self.setMaximumSize(psqt_core.QSize(600, 900))  # specifies largest size
+
+        self.setCentralWidget(button)  # add button as center widget
+        # add real functionality here
+
+
+
+app = psqt_widg.QApplication(sys.argv)
+
+window = MainWindow()
+window.show()  # recall, this is invisible by default
+
+app.exec()  # main event loop
